@@ -1,11 +1,13 @@
-# API with Node 
+# API with Node
 
-## Clone Repository from GitHub 
-```bash 
+## Clone Repository from GitHub
+
+```bash
 > git clone git@github.com:fedearbe/api-node-dev.git
 ```
 
-## Install 
-```bash 
-> install 
+## Install
+
+```bash
+> npm install
 ```
