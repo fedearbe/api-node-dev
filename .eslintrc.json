@@ -13,7 +13,7 @@
     "rules": {
         "no-console": "off",
         "no-unused-vars": [
-            "errors",
+            "error",
             {
                 "argsIgnorePattern": "next"
             }
