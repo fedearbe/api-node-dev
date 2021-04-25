@@ -1,18 +1,15 @@
 const express = require('express');
-const morgan = require('morgan');
+const requestId = require('express-request-id')();
 
 const logger = require('./config/logger');
 
 const app = express();
 
-app.use(
-  morgan('combined', {
-    stream: { write: (message) => logger.info(message) },
-  })
-);
+app.use(requestId);
+app.use(logger.requests);
 
 app.get('/', (req, res) => {
-  res.send("Hello from Fede's world!");
+  res.send(`Hello from Fede's world! Your ID is ${req.id}`);
 });
 
 app.use((req, res, next) => {
