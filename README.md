@@ -7,18 +7,26 @@
 ```
 
 ## Create file .env and next lines
-```bash 
+
+```bash
 SERVER_HOST="127.0.0.1"
 SERVER_PORT=3000
+
+DB_CONNECTION_STRING=""
+DATABASE_PROTOCOL=""
+DATABASE_URL=""
+DATABASE_USERNAME=""
+DATABASE_PASSWORD=""
 ```
 
-## Install application 
+## Install application
 
 ```bash
 > npm install
 ```
 
 ## Run Server
-```bash 
+
+```bash
 > npm run dev
 ```
