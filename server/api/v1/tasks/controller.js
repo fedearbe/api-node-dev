@@ -1,16 +1,25 @@
-const { param } = require('./route');
+const { Model } = require('mongoose');
+const { ModelTask } = require('./model');
 
-const create = (req, res, next) => {
+const create = async (req, res, next) => {
   const { body = {} } = req;
-  res.json(body);
+  const document = new ModelTask(body);
+
+  try {
+    const doc = await document.save();
+    res.json(doc);
+  } catch (err) {
+    next(new Error(err));
+  }
 };
 
-const all = (req, res, next) => {
-  res.json([
-    { _id: 1, title: 'Buy macbook pro m1' },
-    { _id: 2, title: 'Learn module' },
-    { _id: 3, title: 'Practice PHP' },
-  ]);
+const all = async (req, res, next) => {
+  try {
+    const docs = await Model.find({}).exec();
+    res.json(docs);
+  } catch (err) {
+    next(new Error(err));
+  }
 };
 
 const read = (req, res, next) => {
